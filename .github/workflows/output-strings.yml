@@ -21,15 +21,11 @@ jobs:
     # Map the job outputs to step outputs
     outputs:
       output1: ${{ steps.step1.outputs.firstword }}
-      output2: ${{ steps.step3.outputs.secondword }}
+      output2: ${{ steps.step2.outputs.secondword }}
     steps:
       - id: step1
         run: echo "firstword=hello" >> $GITHUB_OUTPUT
       - id: step2
-        run: |
-          export SECONDWORD=world
-          env
+        run: echo "secondword=world" >> $GITHUB_OUTPUT
       - id: step3
-        run: echo "secondword=${SECONDWORD}" >> $GITHUB_OUTPUT
-      - id: step4
-        run: env
+        run: echo "${steps.step1.outputs.firstword} ${{steps.step2.outputs.secondword}}"
