@@ -18,5 +18,11 @@ jobs:
       - name: Use local output-string-action
         id: output-env
         uses: ./.github/actions/output-string
-      - name: Show output
-        run: echo "Output from action ${{ steps.output-env.outputs.output }}"
+  write-outputs:
+    needs: output-string-job
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          OUTPUT: ${{needs.output-string-job.outputs.output}}
+        name: Show output
+        run: echo "$OUTPUT"
