@@ -1,0 +1,10 @@
+name: Output string
+description: hello
+
+runs:
+  using: "composite"
+  steps:
+    - name: Download asset
+      shell: bash
+      run: |
+        echo "output=hello" >> $GITHUB_OUTPUT

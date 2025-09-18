@@ -1,0 +1,22 @@
+---
+
+name: Output
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  output-string-job:
+    runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.output-env.outputs.output }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - name: Use local output-string-action
+        id: output-env
+        uses: ./.github/actions/output-string
+      - name: Show output
+        run: echo "Output from action: ${{ steps.output-env.outputs.output }}"
