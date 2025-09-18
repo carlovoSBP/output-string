@@ -26,7 +26,9 @@ jobs:
       - id: step1
         run: echo "firstword=hello" >> $GITHUB_OUTPUT
       - id: step2
-        run: export SECONDWORD=world
+        run: |
+          export SECONDWORD=world
+          env
       - id: step3
         run: echo "secondword=${SECONDWORD}" >> $GITHUB_OUTPUT
       - id: step4
