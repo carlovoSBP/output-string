@@ -4,6 +4,6 @@ description: hello
 runs:
   using: "composite"
   steps:
-    - name: Download asset
+    - id: output-with-action
       shell: bash
       run: echo "test=hello" >> "$GITHUB_OUTPUT"
