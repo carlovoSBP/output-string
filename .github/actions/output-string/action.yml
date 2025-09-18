@@ -1,9 +1,0 @@
-name: Output string
-description: hello
-
-runs:
-  using: "composite"
-  steps:
-    - id: output-with-action
-      shell: bash
-      run: echo "test=hello" >> "$GITHUB_OUTPUT"
