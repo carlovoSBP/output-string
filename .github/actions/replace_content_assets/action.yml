@@ -1,0 +1,9 @@
+name: composite
+
+runs:
+  using: "composite"
+  steps:
+    - name: composite
+      id: composite
+      shell: bash
+      run: echo "firstword=hello" >> $GITHUB_OUTPUT

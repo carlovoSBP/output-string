@@ -23,8 +23,10 @@ jobs:
       output1: ${{ steps.step1.outputs.firstword }}
       output2: ${{ steps.step2.outputs.secondword }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - id: step1
-        run: echo "firstword=hello" >> $GITHUB_OUTPUT
+        uses: .github/actions/replace_content_assets/action.yml
       - id: step2
         run: echo "secondword=world" >> $GITHUB_OUTPUT
       - id: step3
