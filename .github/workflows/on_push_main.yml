@@ -19,4 +19,4 @@ jobs:
         id: output-env
         uses: ./.github/actions/output-string
       - name: Show output
-        run: echo "Output from action: ${{ steps.output-env.outputs.output }}"
+        run: echo "Output from action ${{ steps.output-env.outputs.output }}"
