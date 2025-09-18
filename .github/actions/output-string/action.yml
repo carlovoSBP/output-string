@@ -6,5 +6,4 @@ runs:
   steps:
     - name: Download asset
       shell: bash
-      run: |
-        echo "output=hello" >> $GITHUB_OUTPUT
+      run: echo "test=hello" >> "$GITHUB_OUTPUT"
