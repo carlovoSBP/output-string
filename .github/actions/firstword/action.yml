@@ -1,5 +1,10 @@
 name: composite
 
+outputs:
+  firstword:
+    description: "The first word output"
+    value: ${{ steps.composite.outputs.firstword }}
+
 runs:
   using: "composite"
   steps:
